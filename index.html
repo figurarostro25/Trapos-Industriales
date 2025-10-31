@@ -3,81 +3,76 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Trapos Industriales · Venta de trapos por bulto, pads y pacas de ropa</title>
-<meta name="description" content="Venta de trapos industriales: bultos de trapos de colores, trapo de algodón blanco, pads de limpieza y pacas de ropa para talleres y empresas. Entregas rápidas." />
+<title>Trapos Industriales · Trapos por bulto, pads y pacas de ropa</title>
+<meta name="description" content="Venta de trapos industriales: bultos de trapo de algodón, trapo de colores, pads de limpieza y pacas de ropa. Entrega rápida a talleres y empresas." />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 
 <style>
 :root{
-  --ink:#0f172a; --muted:#475569;
-  --brand:#0ea5a6; --brand-2:#0b7285; --bg:#f8fafc;
-  --card:#ffffff; --line:#e2e8f0;
+  --ink:#0f172a; --muted:#475569; --line:#e5e7eb;
+  --brand:#198754; --bg:#f6f7f8; --card:#ffffff;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}
-a{text-decoration:none}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:#fff;color:var(--ink)}
+a{text-decoration:none;color:inherit}
 
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:700}
 .btn-primary{background:var(--brand);color:#fff;border:0}
-.btn-ghost{border:1px solid var(--line);color:var(--ink);background:#fff}
+.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
 
+/* Header */
 header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
 .head{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-.brand .logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:#fff;font-weight:800}
-nav{display:flex;gap:16px;flex-wrap:wrap}
+.brand .logo{width:34px;height:34px;border-radius:6px;background:#1f2937;color:#fff;display:grid;place-items:center}
 
-.hero{position:relative;isolation:isolate;background:
-  radial-gradient(60% 60% at 20% 10%, #99f6e4 0%, rgba(255,255,255,0) 60%),
-  radial-gradient(50% 50% at 80% 0%, #67e8f9 0%, rgba(255,255,255,0) 65%),
-  linear-gradient(180deg,#ecfeff,#f8fafc);
-  }
-.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;min-height:68vh;padding:32px 0}
-@media(max-width:900px){.hero-in{grid-template-columns:1fr;min-height:auto}}
-h1{font-size:clamp(34px,5.8vw,56px);line-height:1.05;margin:10px 0 12px;font-weight:800}
-.lead{color:var(--muted);max-width:620px}
-.hero-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 10px 22px rgba(15,23,42,.06)}
-.badge{display:inline-block;background:#dcfce7;color:#166534;border-radius:999px;padding:4px 10px;font-weight:700;font-size:13px}
+/* Banner (sin degradados) */
+.hero{position:relative;background:#111;color:#fff}
+.hero::before{
+  content:"";position:absolute;inset:0;opacity:.35;background:#111; /* capa sólida, no degradado */
+}
+.hero-in{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:40px 0}
+@media(max-width:900px){.hero-in{grid-template-columns:1fr}}
+.hero-image{border:1px solid #222;background:#000}
+.hero-image img{display:block;width:100%;height:360px;object-fit:cover}
+h1{font-size:clamp(32px,5.5vw,54px);line-height:1.05;margin:10px 0 12px;font-weight:800}
+.lead{color:#d1d5db;max-width:620px}
+.badge{display:inline-block;background:#e5f5eb;color:#14532d;border:1px solid #cfe8d6;border-radius:999px;padding:4px 10px;font-weight:700;font-size:13px}
 
-/* Secciones */
-.section{padding:56px 0}
+/* Secciones y tarjetas */
+.section{padding:52px 0}
+.divider{border-top:1px solid var(--line)}
+h2{margin:0 0 12px}
 .grid{display:grid;gap:18px}
 @media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.card .img{width:100%;height:180px;background:#e2e8f0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card .img{width:100%;height:180px;background:var(--bg)}
 .card img{width:100%;height:100%;object-fit:cover;display:block}
-.card-body{padding:16px}
+.card-body{padding:14px}
 .card h3{margin:0 0 6px}
 .card p{margin:0 0 12px;color:var(--muted)}
-.list{margin:0;padding:0 0 0 18px;color:var(--muted)}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
-.kpi b{display:block;font-size:22px}
-@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
 
-/* CTA */
-.cta{background:linear-gradient(135deg,#0ea5a6,#0b7285);color:#fff;border-radius:18px;padding:28px;text-align:center}
-.cta h2{margin:0 0 8px;font-size:clamp(24px,3.8vw,34px)}
+/* Bloque proceso */
+.list{margin:0;padding:0 0 0 18px;color:var(--muted)}
 
 /* Footer */
 footer{border-top:1px solid var(--line);margin-top:40px;background:#fff}
 .foot{display:grid;gap:22px;padding:26px 0}
-@media(min-width:900px){.foot{grid-template-columns:1.1fr 1fr 1fr}}
+@media(min-width:900px){.foot{grid-template-columns:1.2fr 1fr 1fr}}
 .foot h4{margin:0 0 8px}
-.foot a{color:var(--ink)}
 .copy{border-top:1px solid var(--line);padding:12px 0;text-align:center;color:var(--muted);font-size:14px}
 
-/* Botón flotante WhatsApp */
-.fab-wrap{position:fixed;right:18px;bottom:18px;z-index:50}
-.fab{display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 16px;border-radius:999px;font-weight:800;box-shadow:0 10px 20px rgba(0,0,0,.22)}
+/* WhatsApp flotante */
+.fab-wrap{position:fixed;right:18px;bottom:18px;z-index:60}
+.fab{display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 16px;border-radius:999px;font-weight:800;box-shadow:0 10px 20px rgba(0,0,0,.24)}
 .fab svg{width:22px;height:22px;fill:#fff}
 .fab .label{display:block}
 @media(max-width:520px){.fab .label{display:none}}
-/* Imagen fallback: oculta <img> si no existe */
-img[onerror]{background:#e2e8f0}
+
+/* Utilidad: oculta <img> si no existe */
+img[onerror]{background:#e5e7eb}
 </style>
 </head>
 <body>
@@ -89,43 +84,30 @@ img[onerror]{background:#e2e8f0}
       <div class="logo">TI</div>
       <span>Trapos Industriales</span>
     </div>
-    <nav>
+    <nav style="display:flex;gap:16px;flex-wrap:wrap">
       <a href="#productos">Productos</a>
-      <a href="#ventajas">Ventajas</a>
-      <a href="#comprar">Cómo comprar</a>
+      <a href="#proceso">Cómo comprar</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="btn btn-ghost" href="#contacto">Cotizar</a>
+    <a class="btn btn-ghost" href="https://wa.me/WA_NUMBER?text=Hola%20quiero%20hacer%20un%20pedido%20de%20trapos%20industriales">Cotizar</a>
   </div>
 </header>
 
-<!-- Hero -->
+<!-- Hero (banner con pacas) -->
 <section class="hero">
   <div class="container hero-in">
     <div>
-      <span class="badge">Mayorista & Detal</span>
+      <span class="badge">Proveedor industrial</span>
       <h1>Trapos, Pads y Pacas<br> para Talleres y Empresas</h1>
-      <p class="lead">Suministro continuo de <b>trapo de algodón</b>, <b>trapo de colores</b>, <b>pads de limpieza</b> y <b>pacas de ropa</b>. Bultos desde 20 kg. Entregas rápidas a ciudad y zona industrial.</p>
+      <p class="lead">Trapo de algodón blanco y de colores, pads de limpieza y pacas mixtas. Bultos desde 20–200 kg. Entrega rápida a ciudad y zona industrial.</p>
       <div style="display:flex;gap:10px;margin-top:12px">
-        <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Hola%20quisiera%20hacer%20un%20pedido%20de%20trapos%20industriales">Pedir por WhatsApp</a>
+        <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Hola%20necesito%20precios%20y%20disponibilidad">Pedir por WhatsApp</a>
         <a class="btn btn-ghost" href="#productos">Ver productos</a>
       </div>
-      <div class="kpis" style="margin-top:14px">
-        <div class="kpi"><b>+500</b><span>Clientes activos</span></div>
-        <div class="kpi"><b>24–48h</b><span>Entrega</span></div>
-        <div class="kpi"><b>20–200 kg</b><span>Bultos</span></div>
-        <div class="kpi"><b>Eco</b><span>Reuso textil</span></div>
-      </div>
     </div>
-    <div class="hero-card">
-      <h3 style="margin:0 0 8px">Listos para uso industrial</h3>
-      <ul class="list">
-        <li>Absorbentes y libres de elementos metálicos</li>
-        <li>Clasificación por tipo: algodón blanco / colores</li>
-        <li>Opción de pads troquelados para limpieza</li>
-        <li>Control de humedad y empaque reforzado</li>
-      </ul>
-      <a class="btn btn-primary" style="margin-top:10px" href="https://wa.me/WA_NUMBER?text=Hola%20necesito%20lista%20de%20precios%20de%20trapos">Solicitar lista de precios</a>
+    <div class="hero-image">
+      <!-- Usa tu foto de pacas; súbela a /assets/img/banner-pacas.jpg -->
+      <img src="/assets/img/banner-pacas.jpg" alt="Pacas de trapo industrial" onerror="this.style.display='none'">
     </div>
   </div>
 </section>
@@ -133,113 +115,91 @@ img[onerror]{background:#e2e8f0}
 <!-- Productos -->
 <section id="productos" class="section">
   <div class="container">
-    <h2 style="margin:0 0 12px">Productos</h2>
-    <p class="lead">Surtimos por bulto o palet. Calidad estable y suministro continuo.</p>
+    <h2>Productos</h2>
+    <p class="lead" style="color:var(--muted)">Suministro continuo y calidad estable. Venta por bulto o palet.</p>
 
-    <div class="grid grid-3" style="margin-top:16px">
+    <div class="grid grid-3" style="margin-top:12px">
       <article class="card">
         <div class="img">
-          <img src="/assets/img/trapo-algodon-blanco.jpg" alt="Trapo de algodón blanco"
-               onerror="this.style.display='none'">
+          <img src="/assets/img/trapo-algodon-blanco.jpg" alt="Trapo de algodón blanco" onerror="this.style.display='none'">
         </div>
         <div class="card-body">
           <h3>Trapo de algodón blanco</h3>
-          <p>Alta absorción. Ideal para mecánica fina, pintura y químicos.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Algod%C3%B3n%20blanco%20-%20solicito%20precio%20y%20disponibilidad">Pedir</a>
+          <p>Alta absorción. Ideal para pintura, química y mecánica fina.</p>
+          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Algod%C3%B3n%20blanco%20-%20precio%20y%20stock">Pedir</a>
         </div>
       </article>
 
       <article class="card">
         <div class="img">
-          <img src="/assets/img/trapo-colores.jpg" alt="Trapo de colores clasificado"
-               onerror="this.style.display='none'">
+          <img src="/assets/img/trapo-colores.jpg" alt="Trapo de colores clasificado" onerror="this.style.display='none'">
         </div>
         <div class="card-body">
           <h3>Trapo de colores</h3>
-          <p>Clasificado, sin cierres ni botones. Uso general y talleres.</p>
+          <p>Preclasificado, sin cierres ni piezas metálicas. Uso general.</p>
           <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Trapo%20de%20colores%20-%20cotizaci%C3%B3n">Pedir</a>
         </div>
       </article>
 
       <article class="card">
         <div class="img">
-          <img src="/assets/img/pads-industriales.jpg" alt="Pads de limpieza industrial"
-               onerror="this.style.display='none'">
+          <img src="/assets/img/pads-industriales.jpg" alt="Pads de limpieza industrial" onerror="this.style.display='none'">
         </div>
         <div class="card-body">
           <h3>Pads de limpieza</h3>
-          <p>Troquelados y resistentes. Opción por medidas y gramaje.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Pads%20industriales%20-%20requiero%20informaci%C3%B3n">Pedir</a>
+          <p>Troquelados y resistentes. Opciones por medida y gramaje.</p>
+          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Pads%20industriales%20-%20informaci%C3%B3n">Pedir</a>
         </div>
       </article>
     </div>
 
-    <div class="grid grid-2" style="margin-top:18px">
+    <div class="grid grid-2" style="margin-top:16px">
       <article class="card">
         <div class="img">
-          <img src="/assets/img/pacas-ropa.jpg" alt="Pacas de ropa para trapo"
-               onerror="this.style.display='none'">
+          <img src="/assets/img/pacas-ropa.jpg" alt="Pacas de ropa para trapo" onerror="this.style.display='none'">
         </div>
         <div class="card-body">
           <h3>Pacas de ropa</h3>
           <p>Selección para reciclaje textil y conversión a trapo industrial.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Pacas%20de%20ropa%20-%20informaci%C3%B3n">Pedir</a>
+          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Pacas%20de%20ropa%20-%20disponibilidad">Pedir</a>
         </div>
       </article>
 
       <article class="card">
         <div class="img">
-          <img src="/assets/img/bultos-trapo.jpg" alt="Bultos de trapo 20–200 kg"
-               onerror="this.style.display='none'">
+          <img src="/assets/img/bultos-trapo.jpg" alt="Bultos 20–200 kg" onerror="this.style.display='none'">
         </div>
         <div class="card-body">
           <h3>Bultos 20–200 kg</h3>
-          <p>Empaque reforzado, etiquetado por lote y entrega a piso.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Bultos%2020-200%20kg%20-%20disponibilidad">Pedir</a>
+          <p>Empaque reforzado y etiquetado por lote. Entrega a piso.</p>
+          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Bultos%2020-200%20kg%20-%20precios">Pedir</a>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- Ventajas -->
-<section id="ventajas" class="section" style="background:#fff">
+<!-- Proceso de compra -->
+<section id="proceso" class="section divider">
   <div class="container">
-    <h2 style="margin:0 0 12px">¿Por qué elegirnos?</h2>
-    <div class="grid grid-3" style="margin-top:12px">
-      <div class="card"><div class="card-body"><h3>Calidad estable</h3><p>Lotes controlados y clasificación real sin piezas metálicas.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Stock permanente</h3><p>Abastecimiento continuo para contratos mensuales.</p></div></div>
-      <div class="card"><div class="card-body"><h3>Entrega rápida</h3><p>24–48 h en ciudad y zona industrial. Paletizado opcional.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Cómo comprar -->
-<section id="comprar" class="section">
-  <div class="container">
-    <h2 style="margin:0 0 12px">Cómo comprar</h2>
+    <h2>Cómo comprar</h2>
     <ol class="list">
-      <li>Escríbenos por WhatsApp el producto y peso (ej. “algodón blanco 50 kg”).</li>
-      <li>Te confirmamos disponibilidad, precio y entrega.</li>
-      <li>Pago: transferencia/efectivo. Factura e ITBMS según aplique.</li>
+      <li>Escríbenos por WhatsApp el producto y peso (ej.: “Algodón blanco 50 kg”).</li>
+      <li>Confirmamos disponibilidad, precio y entrega (24–48 h en ciudad).</li>
+      <li>Pago por transferencia/efectivo. Factura e ITBMS según aplique.</li>
     </ol>
-    <div class="cta" style="margin-top:18px">
-      <h2>¿Necesitas precio hoy?</h2>
-      <p style="margin:0 0 12px">Resolvemos por WhatsApp en minutos.</p>
-      <a class="btn btn-ghost" style="background:#fff" href="https://wa.me/WA_NUMBER?text=Hola%20quiero%20cotizar%20trapos%20industriales">Abrir WhatsApp</a>
-    </div>
   </div>
 </section>
 
 <!-- Contacto -->
-<section id="contacto" class="section" style="background:#fff">
+<section id="contacto" class="section">
   <div class="container">
-    <h2 style="margin:0 0 10px">Contacto</h2>
-    <div class="grid grid-2">
+    <h2>Contacto</h2>
+    <div class="grid grid-2" style="margin-top:8px">
       <div class="card"><div class="card-body">
         <h3>Trapos Industriales</h3>
-        <p class="lead">Ventas mayoristas y al por menor.</p>
-        <p><b>WhatsApp:</b> +507 6000-0000</p>
+        <p class="lead" style="color:var(--muted)">Ventas mayoristas y al por menor.</p>
+        <p><b>WhatsApp:</b> +507 WA_NUMBER</p>
         <p><b>Correo:</b> ventas@traposindustriales.com</p>
         <p><b>Horario:</b> Lun–Sáb · 8:00–18:00</p>
         <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Hola%20requiero%20informaci%C3%B3n">Escribir ahora</a>
@@ -247,7 +207,9 @@ img[onerror]{background:#e2e8f0}
       <div class="card"><div class="card-body">
         <h3>Cobertura</h3>
         <p>Ciudad y zona industrial. Envíos al interior por cargo.</p>
-        <div style="height:180px;background:#e2e8f0;border-radius:12px;display:grid;place-items:center">Mapa / Foto bodega</div>
+        <div style="height:180px;background:#f3f4f6;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center">
+          Mapa / Foto de bodega
+        </div>
       </div></div>
     </div>
   </div>
@@ -258,7 +220,7 @@ img[onerror]{background:#e2e8f0}
   <div class="container foot">
     <div>
       <div class="brand"><div class="logo">TI</div><span>Trapos Industriales</span></div>
-      <p class="lead" style="margin:8px 0 0">Suministro confiable de trapos, pads y pacas de ropa para la industria.</p>
+      <p class="lead" style="color:var(--muted);margin:8px 0 0">Suministro confiable de trapos, pads y pacas para la industria.</p>
     </div>
     <div>
       <h4>Productos</h4>
@@ -266,13 +228,13 @@ img[onerror]{background:#e2e8f0}
         <a href="#productos">Trapo algodón blanco</a>
         <a href="#productos">Trapo de colores</a>
         <a href="#productos">Pads de limpieza</a>
-        <a href="#productos">Pacas de ropa</a>
+        <a href="#productos">Pacas y bultos</a>
       </div>
     </div>
     <div>
       <h4>Atención</h4>
       <div style="display:grid;gap:6px">
-        <a href="#comprar">Cómo comprar</a>
+        <a href="#proceso">Cómo comprar</a>
         <a href="#contacto">Contacto</a>
         <a href="https://wa.me/WA_NUMBER">WhatsApp Pedidos</a>
       </div>
@@ -290,20 +252,19 @@ img[onerror]{background:#e2e8f0}
 </div>
 
 <script>
-  // año dinámico
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
 
-<!-- JSON-LD LocalBusiness -->
+<!-- (Opcional) JSON-LD -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"LocalBusiness",
   "name":"Trapos Industriales",
-  "description":"Venta de trapos industriales, pads de limpieza y pacas de ropa para talleres y empresas.",
+  "description":"Venta de trapos industriales, pads y pacas de ropa para talleres y empresas.",
   "areaServed":"Ciudad y zona industrial",
-  "url":"https://tusitio.com",
-  "telephone":"+50760000000",
+  "url":"https://trapos-industriales.vercel.app",
+  "telephone":"+507WA_NUMBER",
   "sameAs":["https://wa.me/WA_NUMBER"]
 }
 </script>
