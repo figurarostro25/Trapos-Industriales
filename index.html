@@ -1,272 +1,333 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Trapos Industriales · Trapos por bulto, pads y pacas de ropa</title>
-<meta name="description" content="Venta de trapos industriales: bultos de trapo de algodón, trapo de colores, pads de limpieza y pacas de ropa. Entrega rápida a talleres y empresas." />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vela DaySpa | Bienestar & Lujo Boutique Panamá</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Jost:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #d4af37;
+            --black: #0a0a0a;
+            --gray: #1a1a1a;
+            --white: #ffffff;
+            --off-white: #fafafa;
+        }
 
-<style>
-:root{
-  --ink:#0f172a; --muted:#475569; --line:#e5e7eb;
-  --brand:#198754; --bg:#f6f7f8; --card:#ffffff;
-}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:#fff;color:var(--ink)}
-a{text-decoration:none;color:inherit}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Jost', sans-serif; 
+            background-color: var(--black); 
+            color: var(--white); 
+            line-height: 1.6; 
+        }
+        h1, h2, h3, .price-tag { font-family: 'Tenor Sans', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
 
-.container{max-width:1100px;margin:0 auto;padding:0 16px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:700}
-.btn-primary{background:var(--brand);color:#fff;border:0}
-.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+        /* HEADER */
+        nav {
+            background: rgba(0,0,0,0.9);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .logo { font-size: 1.5rem; color: var(--gold); font-weight: bold; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+        .nav-links a:hover { color: var(--gold); }
 
-/* Header */
-header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
-.head{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800}
-.brand .logo{width:34px;height:34px;border-radius:6px;background:#1f2937;color:#fff;display:grid;place-items:center}
+        /* HERO SLIDER (Estilo Horus) */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('hero1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--white); }
+        .hero p { font-size: 1.1rem; color: var(--gold); letter-spacing: 3px; }
 
-/* Banner (sin degradados) */
-.hero{position:relative;background:#111;color:#fff}
-.hero::before{
-  content:"";position:absolute;inset:0;opacity:.35;background:#111; /* capa sólida, no degradado */
-}
-.hero-in{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:40px 0}
-@media(max-width:900px){.hero-in{grid-template-columns:1fr}}
-.hero-image{border:1px solid #222;background:#000}
-.hero-image img{display:block;width:100%;height:360px;object-fit:cover}
-h1{font-size:clamp(32px,5.5vw,54px);line-height:1.05;margin:10px 0 12px;font-weight:800}
-.lead{color:#d1d5db;max-width:620px}
-.badge{display:inline-block;background:#e5f5eb;color:#14532d;border:1px solid #cfe8d6;border-radius:999px;padding:4px 10px;font-weight:700;font-size:13px}
+        /* GRID TERAPEUTAS (Estilo Catálogo) */
+        .container { max-width: 1200px; margin: auto; padding: 80px 20px; }
+        .section-title { text-align: center; margin-bottom: 50px; color: var(--gold); font-size: 2rem; }
+        
+        .therapist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .therapist-card {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .therapist-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .therapist-card:hover img { transform: scale(1.05); filter: brightness(0.5); }
+        
+        .therapist-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            text-align: center;
+        }
+        .therapist-info h3 { color: var(--gold); margin-bottom: 5px; font-size: 1.5rem; }
+        .therapist-info p { font-size: 0.8rem; letter-spacing: 1px; color: #ccc; margin-bottom: 15px; }
 
-/* Secciones y tarjetas */
-.section{padding:52px 0}
-.divider{border-top:1px solid var(--line)}
-h2{margin:0 0 12px}
-.grid{display:grid;gap:18px}
-@media(min-width:900px){.grid-3{grid-template-columns:repeat(3,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.card .img{width:100%;height:180px;background:var(--bg)}
-.card img{width:100%;height:100%;object-fit:cover;display:block}
-.card-body{padding:14px}
-.card h3{margin:0 0 6px}
-.card p{margin:0 0 12px;color:var(--muted)}
+        /* ACCIONES DE CITA (MODALIDAD) */
+        .booking-actions { position: relative; }
+        .btn-main { background: var(--gold); color: black; border: none; padding: 12px 25px; border-radius: 5px; font-weight: 700; cursor: pointer; width: 100%; text-transform: uppercase; }
+        
+        .booking-dropdown {
+            position: absolute; bottom: 110%; left: 0; width: 100%; background: white;
+            padding: 15px; border-radius: 10px; box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+            display: none; flex-direction: column; gap: 8px;
+        }
+        .booking-dropdown.active { display: flex; animation: slideUp 0.3s forwards; }
+        .opt-box { border: 1px solid #ddd; padding: 10px; border-radius: 5px; color: black; cursor: pointer; text-align: left; }
+        .opt-box:hover { border-color: var(--gold); background: #fdfaf3; }
+        .opt-box b { display: block; font-size: 0.9rem; }
+        .opt-box small { color: #888; font-size: 0.7rem; }
 
-/* Bloque proceso */
-.list{margin:0;padding:0 0 0 18px;color:var(--muted)}
+        /* SERVICIOS (Estilo Horus: Lista de beneficios y precios) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .service-item {
+            background: var(--gray);
+            border-radius: 15px;
+            overflow: hidden;
+            border-bottom: 4px solid var(--gold);
+            transition: 0.3s;
+        }
+        .service-item:hover { transform: translateY(-10px); }
+        .service-img { width: 100%; height: 200px; object-fit: cover; }
+        .service-content { padding: 30px; }
+        .service-content h3 { color: var(--gold); margin-bottom: 20px; }
+        .service-content ul { margin-bottom: 25px; }
+        .service-content ul li { font-size: 0.9rem; margin-bottom: 10px; color: #ddd; display: flex; align-items: center; gap: 10px; }
+        .service-content ul li i { color: var(--gold); font-size: 0.8rem; }
+        .price-tag { font-size: 1.8rem; color: white; display: block; margin-bottom: 20px; }
 
-/* Footer */
-footer{border-top:1px solid var(--line);margin-top:40px;background:#fff}
-.foot{display:grid;gap:22px;padding:26px 0}
-@media(min-width:900px){.foot{grid-template-columns:1.2fr 1fr 1fr}}
-.foot h4{margin:0 0 8px}
-.copy{border-top:1px solid var(--line);padding:12px 0;text-align:center;color:var(--muted);font-size:14px}
+        /* SECCIÓN CHIRIQUÍ */
+        .coming-soon { background: var(--gold); color: black; padding: 60px 20px; text-align: center; }
+        .coming-soon h2 { letter-spacing: 10px; }
 
-/* WhatsApp flotante */
-.fab-wrap{position:fixed;right:18px;bottom:18px;z-index:60}
-.fab{display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:12px 16px;border-radius:999px;font-weight:800;box-shadow:0 10px 20px rgba(0,0,0,.24)}
-.fab svg{width:22px;height:22px;fill:#fff}
-.fab .label{display:block}
-@media(max-width:520px){.fab .label{display:none}}
+        /* CTA ESTRATÉGICO FINAL */
+        .cta-final {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('hero3.jpg');
+            background-size: cover;
+            padding: 100px 20px;
+            text-align: center;
+            border-top: 1px solid var(--gold);
+        }
+        .promo-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 40px 0; }
+        .promo-card { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; border: 1px solid var(--gold); width: 250px; }
+        .promo-card i { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
+        
+        .secret-btn {
+            background: var(--gold); color: black; padding: 20px 40px; font-weight: 800;
+            border-radius: 50px; text-decoration: none; display: inline-block;
+            animation: pulse 2s infinite; font-size: 1rem;
+        }
 
-/* Utilidad: oculta <img> si no existe */
-img[onerror]{background:#e5e7eb}
-</style>
+        /* FOOTER */
+        footer { padding: 60px 5% 20px; text-align: center; background: #000; border-top: 1px solid #222; }
+        .wa-fixed { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 2000; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="container head">
-    <div class="brand">
-      <div class="logo">TI</div>
-      <span>Trapos Industriales</span>
-    </div>
-    <nav style="display:flex;gap:16px;flex-wrap:wrap">
-      <a href="#productos">Productos</a>
-      <a href="#proceso">Cómo comprar</a>
-      <a href="#contacto">Contacto</a>
+    <a href="https://wa.me/50760162716" class="wa-fixed" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <nav>
+        <div class="logo">VELA DAYSPA</div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Masajes VIP</a>
+            <a href="#staff">Terapeutas</a>
+            <a href="reservas.html">Reservas</a>
+        </div>
+        <a href="https://wa.me/50760162716" style="color: #25d366; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
     </nav>
-    <a class="btn btn-ghost" href="https://wa.me/WA_NUMBER?text=Hola%20quiero%20hacer%20un%20pedido%20de%20trapos%20industriales">Cotizar</a>
-  </div>
-</header>
 
-<!-- Hero (banner con pacas) -->
-<section class="hero">
-  <div class="container hero-in">
-    <div>
-      <span class="badge">Proveedor industrial</span>
-      <h1>Trapos, Pads y Pacas<br> para Talleres y Empresas</h1>
-      <p class="lead">Trapo de algodón blanco y de colores, pads de limpieza y pacas mixtas. Bultos desde 20–200 kg. Entrega rápida a ciudad y zona industrial.</p>
-      <div style="display:flex;gap:10px;margin-top:12px">
-        <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Hola%20necesito%20precios%20y%20disponibilidad">Pedir por WhatsApp</a>
-        <a class="btn btn-ghost" href="#productos">Ver productos</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <!-- Usa tu foto de pacas; súbela a /assets/img/banner-pacas.jpg -->
-      <img src="/assets/img/banner-pacas.jpg" alt="Pacas de trapo industrial" onerror="this.style.display='none'">
-    </div>
-  </div>
-</section>
+    <header class="hero">
+        <h1>RELAJACIÓN SIN LÍMITES</h1>
+        <p>PREMIUM EXPERIENCE PANAMÁ</p>
+    </header>
 
-<!-- Productos -->
-<section id="productos" class="section">
-  <div class="container">
-    <h2>Productos</h2>
-    <p class="lead" style="color:var(--muted)">Suministro continuo y calidad estable. Venta por bulto o palet.</p>
+    <section class="coming-soon">
+        <h2>PRÓXIMA SUCURSAL: CHIRIQUÍ</h2>
+        <p style="letter-spacing: 5px; font-weight: bold; margin-top: 10px;">MUY PRONTO 2026</p>
+    </section>
 
-    <div class="grid grid-3" style="margin-top:12px">
-      <article class="card">
-        <div class="img">
-          <img src="/assets/img/trapo-algodon-blanco.jpg" alt="Trapo de algodón blanco" onerror="this.style.display='none'">
+    <section class="container" id="staff">
+        <h2 class="section-title">Elige tu Terapeuta</h2>
+        <div class="therapist-grid">
+            
+            <div class="therapist-card">
+                <img src="terapeuta1.jpg" alt="Isabella">
+                <div class="therapist-overlay">
+                    <h3>Isabella</h3>
+                    <p>EXTROVERTIDA | MANOS DE SEDA | BILINGÜE</p>
+                    <div class="booking-actions">
+                        <button class="btn-main" onclick="toggleDrop('d1')">Ver Disponibilidad</button>
+                        <div class="booking-dropdown" id="d1">
+                            <div class="opt-box" onclick="sendWs('Isabella', 'En Spa')"><b>Atención en Spa</b><small>Plaza Royal Park, PB-19</small></div>
+                            <div class="opt-box" onclick="sendWs('Isabella', 'Domicilio')"><b>A Domicilio (+$30)</b><small>Incluye Uber Confort</small></div>
+                            <a href="reservas.html" style="font-size: 0.7rem; color: var(--gold); text-align: center; margin-top: 10px;">IR AL CALENDARIO DE CITAS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="therapist-card">
+                <img src="terapeuta2.jpg" alt="Ricardo">
+                <div class="therapist-overlay">
+                    <h3>Ricardo</h3>
+                    <p>GUAPO | MANOS FUERTES | DESCONTRACTURANTE</p>
+                    <div class="booking-actions">
+                        <button class="btn-main" onclick="toggleDrop('d2')">Ver Disponibilidad</button>
+                        <div class="booking-dropdown" id="d2">
+                            <div class="opt-box" onclick="sendWs('Ricardo', 'En Spa')"><b>Atención en Spa</b><small>Privacidad Total</small></div>
+                            <div class="opt-box" onclick="sendWs('Ricardo', 'Domicilio')"><b>A Domicilio (+$30)</b><small>Servicio Premium</small></div>
+                            <a href="reservas.html" style="font-size: 0.7rem; color: var(--gold); text-align: center; margin-top: 10px;">IR AL CALENDARIO DE CITAS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="therapist-card">
+                <img src="terapeuta3.jpg" alt="Valentina">
+                <div class="therapist-overlay">
+                    <h3>Valentina</h3>
+                    <p>PROFESIONAL | MANOS SUAVES | RELAJANTE</p>
+                    <div class="booking-actions">
+                        <button class="btn-main" onclick="toggleDrop('d3')">Ver Disponibilidad</button>
+                        <div class="booking-dropdown" id="d3">
+                            <div class="opt-box" onclick="sendWs('Valentina', 'En Spa')"><b>Atención en Spa</b><small>Ambiente Climatizado</small></div>
+                            <div class="opt-box" onclick="sendWs('Valentina', 'Domicilio')"><b>A Domicilio (+$30)</b><small>Máximo Confort</small></div>
+                            <a href="reservas.html" style="font-size: 0.7rem; color: var(--gold); text-align: center; margin-top: 10px;">IR AL CALENDARIO DE CITAS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="card-body">
-          <h3>Trapo de algodón blanco</h3>
-          <p>Alta absorción. Ideal para pintura, química y mecánica fina.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Algod%C3%B3n%20blanco%20-%20precio%20y%20stock">Pedir</a>
-        </div>
-      </article>
+    </section>
 
-      <article class="card">
-        <div class="img">
-          <img src="/assets/img/trapo-colores.jpg" alt="Trapo de colores clasificado" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <h3>Trapo de colores</h3>
-          <p>Preclasificado, sin cierres ni piezas metálicas. Uso general.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Trapo%20de%20colores%20-%20cotizaci%C3%B3n">Pedir</a>
-        </div>
-      </article>
+    <section class="container">
+        <h2 class="section-title">Nuestros Masajes VIP</h2>
+        <div class="services-grid">
+            
+            <div class="service-item">
+                <img src="servicio_cab.jpg" class="service-img">
+                <div class="service-content">
+                    <h3>Masaje Terapéutico Caballero</h3>
+                    <span class="price-tag">$60.00 <small>/ 60 Min</small></span>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Descontracturante Profundo</li>
+                        <li><i class="fas fa-check"></i> Aromaterapia Masculina</li>
+                        <li><i class="fas fa-check"></i> Bebida de cortesía</li>
+                    </ul>
+                    <a href="https://wa.me/50760162716" class="btn-main" style="text-align: center; display: block; text-decoration: none;">Reservar Ahora</a>
+                </div>
+            </div>
 
-      <article class="card">
-        <div class="img">
-          <img src="/assets/img/pads-industriales.jpg" alt="Pads de limpieza industrial" onerror="this.style.display='none'">
+            <div class="service-item">
+                <img src="servicio_dam.jpg" class="service-img">
+                <div class="service-content">
+                    <h3>Relajante Sensitivo Damas</h3>
+                    <span class="price-tag">$75.00 <small>/ 60 Min</small></span>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Exfoliación Suave</li>
+                        <li><i class="fas fa-check"></i> Aceites de Lavanda</li>
+                        <li><i class="fas fa-check"></i> Música de meditación</li>
+                    </ul>
+                    <a href="https://wa.me/50760162716" class="btn-main" style="text-align: center; display: block; text-decoration: none;">Reservar Ahora</a>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="servicio_par.jpg" class="service-img">
+                <div class="service-content">
+                    <h3>Masaje Duo (Parejas)</h3>
+                    <span class="price-tag">$110.00 <small>/ 60 Min</small></span>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Dos Terapeutas en Simultáneo</li>
+                        <li><i class="fas fa-check"></i> Decoración con Pétalos</li>
+                        <li><i class="fas fa-check"></i> Ambiente Romántico VIP</li>
+                    </ul>
+                    <a href="https://wa.me/50760162716" class="btn-main" style="text-align: center; display: block; text-decoration: none;">Reservar Ahora</a>
+                </div>
+            </div>
+
         </div>
-        <div class="card-body">
-          <h3>Pads de limpieza</h3>
-          <p>Troquelados y resistentes. Opciones por medida y gramaje.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Pads%20industriales%20-%20informaci%C3%B3n">Pedir</a>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="servicios.html" class="btn-main" style="width: auto; padding: 15px 50px; text-decoration: none;">VER TODOS LOS SERVICIOS</a>
         </div>
-      </article>
-    </div>
+    </section>
 
-    <div class="grid grid-2" style="margin-top:16px">
-      <article class="card">
-        <div class="img">
-          <img src="/assets/img/pacas-ropa.jpg" alt="Pacas de ropa para trapo" onerror="this.style.display='none'">
+    <section class="container" style="padding-top: 0;">
+        <div style="background: var(--gray); padding: 40px; border-radius: 10px; border: 1px solid var(--gold); text-align: center;">
+            <h3 style="color: var(--gold); margin-bottom: 15px;">Aviso de Privacidad & Discreción</h3>
+            <p>Contamos con staff seleccionado por su atractivo y profesionalismo. Atendemos clientes de alto perfil. **No realizamos servicios sexuales**.</p>
         </div>
-        <div class="card-body">
-          <h3>Pacas de ropa</h3>
-          <p>Selección para reciclaje textil y conversión a trapo industrial.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Pacas%20de%20ropa%20-%20disponibilidad">Pedir</a>
+    </section>
+
+    <section class="cta-final">
+        <h2 style="color: var(--gold);">¡Tu Bienestar merece un Premio!</h2>
+        <div class="promo-container">
+            <div class="promo-card"><i class="fas fa-gift"></i><h4>BONO DE $50</h4><p>En tu próximo masaje de 90min.</p></div>
+            <div class="promo-card"><i class="fas fa-star"></i><h4>6TO MASAJE GRATIS</h4><p>Premiamos tu fidelidad.</p></div>
+            <div class="promo-card"><i class="fas fa-birthday-cake"></i><h4>TU CUMPLEAÑOS</h4><p>2 Manos adicionales de regalo.</p></div>
         </div>
-      </article>
+        <a href="https://wa.me/50760162716?text=Quiero%20mi%20descuento%20secreto" class="secret-btn">CONOCE TU DESCUENTO SECRETO</a>
+    </section>
 
-      <article class="card">
-        <div class="img">
-          <img src="/assets/img/bultos-trapo.jpg" alt="Bultos 20–200 kg" onerror="this.style.display='none'">
-        </div>
-        <div class="card-body">
-          <h3>Bultos 20–200 kg</h3>
-          <p>Empaque reforzado y etiquetado por lote. Entrega a piso.</p>
-          <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Bultos%2020-200%20kg%20-%20precios">Pedir</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+    <footer>
+        <div class="logo">VELA DAYSPA</div>
+        <p style="margin: 20px 0; color: #666;">Parque Lefevre, Plaza Royal Park, PB-19 | Panamá</p>
+        <p style="font-size: 0.8rem; color: #444;">&copy; 2026 Vela DaySpa Panamá. Luxury Wellness Center. All rights reserved.</p>
+    </footer>
 
-<!-- Proceso de compra -->
-<section id="proceso" class="section divider">
-  <div class="container">
-    <h2>Cómo comprar</h2>
-    <ol class="list">
-      <li>Escríbenos por WhatsApp el producto y peso (ej.: “Algodón blanco 50 kg”).</li>
-      <li>Confirmamos disponibilidad, precio y entrega (24–48 h en ciudad).</li>
-      <li>Pago por transferencia/efectivo. Factura e ITBMS según aplique.</li>
-    </ol>
-  </div>
-</section>
+    <script>
+        function toggleDrop(id) {
+            document.querySelectorAll('.booking-dropdown').forEach(p => { if(p.id !== id) p.classList.remove('active'); });
+            document.getElementById(id).classList.toggle('active');
+        }
 
-<!-- Contacto -->
-<section id="contacto" class="section">
-  <div class="container">
-    <h2>Contacto</h2>
-    <div class="grid grid-2" style="margin-top:8px">
-      <div class="card"><div class="card-body">
-        <h3>Trapos Industriales</h3>
-        <p class="lead" style="color:var(--muted)">Ventas mayoristas y al por menor.</p>
-        <p><b>WhatsApp:</b> +507 WA_NUMBER</p>
-        <p><b>Correo:</b> ventas@traposindustriales.com</p>
-        <p><b>Horario:</b> Lun–Sáb · 8:00–18:00</p>
-        <a class="btn btn-primary" href="https://wa.me/WA_NUMBER?text=Hola%20requiero%20informaci%C3%B3n">Escribir ahora</a>
-      </div></div>
-      <div class="card"><div class="card-body">
-        <h3>Cobertura</h3>
-        <p>Ciudad y zona industrial. Envíos al interior por cargo.</p>
-        <div style="height:180px;background:#f3f4f6;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center">
-          Mapa / Foto de bodega
-        </div>
-      </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="container foot">
-    <div>
-      <div class="brand"><div class="logo">TI</div><span>Trapos Industriales</span></div>
-      <p class="lead" style="color:var(--muted);margin:8px 0 0">Suministro confiable de trapos, pads y pacas para la industria.</p>
-    </div>
-    <div>
-      <h4>Productos</h4>
-      <div style="display:grid;gap:6px">
-        <a href="#productos">Trapo algodón blanco</a>
-        <a href="#productos">Trapo de colores</a>
-        <a href="#productos">Pads de limpieza</a>
-        <a href="#productos">Pacas y bultos</a>
-      </div>
-    </div>
-    <div>
-      <h4>Atención</h4>
-      <div style="display:grid;gap:6px">
-        <a href="#proceso">Cómo comprar</a>
-        <a href="#contacto">Contacto</a>
-        <a href="https://wa.me/WA_NUMBER">WhatsApp Pedidos</a>
-      </div>
-    </div>
-  </div>
-  <div class="copy">© <span id="y"></span> Trapos Industriales · Todos los derechos reservados</div>
-</footer>
-
-<!-- Botón flotante WhatsApp -->
-<div class="fab-wrap">
-  <a class="fab" href="https://wa.me/WA_NUMBER?text=Hola%20quiero%20hacer%20un%20pedido" aria-label="WhatsApp Pedidos" target="_blank" rel="noopener">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.08c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.6.14-.18.27-.69.86-.84 1.03-.15.18-.31.2-.58.07-.27-.14-1.14-.42-2.18-1.34-.8-.71-1.35-1.59-1.51-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.48-.06-.14-.6-1.44-.82-1.98-.22-.53-.44-.46-.6-.47l-.51-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.28s.99 2.64 1.13 2.82c.14.18 1.94 2.96 4.7 4.15.66.29 1.17.46 1.57.59.66.21 1.25.18 1.72.11.52-.08 1.58-.64 1.8-1.25.22-.61.22-1.14.15-1.25-.06-.11-.24-.18-.51-.31zM16 3C9.38 3 4 8.38 4 15c0 2.64.87 5.08 2.35 7.06L5 29l7.12-1.32A11.93 11.93 0 0 0 16 27c6.62 0 12-5.38 12-12S22.62 3 16 3z"/></svg>
-    <span class="label">Pedidos</span>
-  </a>
-</div>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
-
-<!-- (Opcional) JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-  "name":"Trapos Industriales",
-  "description":"Venta de trapos industriales, pads y pacas de ropa para talleres y empresas.",
-  "areaServed":"Ciudad y zona industrial",
-  "url":"https://trapos-industriales.vercel.app",
-  "telephone":"+507WA_NUMBER",
-  "sameAs":["https://wa.me/WA_NUMBER"]
-}
-</script>
+        function sendWs(nombre, mod) {
+            const msg = encodeURIComponent(`Hola Vela DaySpa, quiero una cita con ${nombre} en modalidad: ${mod}`);
+            window.open(`https://wa.me/50760162716?text=${msg}`, '_blank');
+        }
+    </script>
 </body>
 </html>
